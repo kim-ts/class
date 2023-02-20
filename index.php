@@ -40,7 +40,10 @@
 
         session_start();
         if($_SESSION['loginID'] !=""){
-            echo "<h1>".$_SESSION['loginID']."님환영합니다.</h1>";//.은 연결시켜주는 기호 파이썬의 + 같은기능인듯
+            mysql_connect("localhost","root","kyokyo!@");
+            mysql_select_db("webhacktest");
+            $result = mysql_fetch_array(mysql_query("select * from member where id='$_SESSION[loginID]'"));
+            echo "<h1>".$result['nickname']."님환영합니다.</h1>";//.은 연결시켜주는 기호 파이썬의 + 같은기능인듯
         }
         ?>
         <a href="cookie.php">팝업창 1주일 동안 보지 않기</a><br>

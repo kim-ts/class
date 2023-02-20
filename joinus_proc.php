@@ -6,7 +6,37 @@
     $nickname = $_POST['nickname'];
     $mobile = $_POST['mobile'];
     $email = $_POST['email'];
-    $address = $_POST['iaddress'];
+    $address = $_POST['address'];
+
+    if($id == ""){
+        echo "noooooo id";
+        exit;
+    }
+    else if($pass == ""){
+        echo "nooooooo pass";
+        exit;
+    }
+    else if($pass_re == ""){
+        echo "no! pass_re";
+        exit;
+    }
+    else if($name == ""){
+        echo "no name";
+        exit;
+    }
+    else if($email == ""){
+        echo " no e! mail";
+        exit;
+    }
+    else if($pass != $pass_re){
+        echo "passwd not!!!!!!!!!!!!!!!! corrrrrrrrrrrre!!!!!!!!!ct";
+        exit;
+    }
+    else if(strlen($id) > 10){
+        echo "id length less then 10!!!";
+        exit;
+    }
+
 
     $connect = mysql_connect("localhost", "root", "kyokyo!@");
     if(!$connect){
