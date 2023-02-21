@@ -15,11 +15,16 @@
     }
 
     session_start();
+    if($_SESSION['loginID'] == ""){
+        $user = "not login";
+    }else{
+        $user = $_SESSION['loginID'];
+    }
 
     $sql = "insert into board set
             subject = '$subject',
             content = '$content',
-            user = '$_SESSION[loginID]',
+            user = '$user',
             reg_date = now()";
 
     
