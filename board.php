@@ -27,7 +27,7 @@
                 $return =mysql_query("select * from board");
                 while($result = mysql_fetch_array($return)){
             ?>
-            <a href="board_view.php?no=<?php echo $result['no'];?>">글번호 : <?php echo $result['no'];?> 제목 : <?php echo $result['subject'];?> 작성자 : <?php echo $result['user'];?> 등록일 : <?php echo $result['reg_date'];?> </a>  <!-- a 링크에서 ? 뒤에 오는 no 는 get방식으로 no라는 파라미터로 값을 전달하면 번호에 해당하는 글 내용이 출력되도록하는것 -->
+            <a href="board_view.php?no=<?php echo $result['no'];?>">글번호 : <?php echo $result['no'];?> 제목 : <?php echo $result['subject'];?> 작성자 : <?php echo $result['user'];?> 등록일 : <?php echo $result['reg_date'];?> </a> <a href="board_del.php?no=<?php echo $result['no'];?>">삭제</a> <!-- a 링크에서 ? 뒤에 오는 no 는 get방식으로 no라는 파라미터로 값을 전달하면 번호에 해당하는 글 내용이 출력되도록하는것 -->
             <?php
                 }
             ?>

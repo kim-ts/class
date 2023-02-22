@@ -1,6 +1,6 @@
 <?php
     $keyword = $_GET['keyword'];
-
+    $keyword = htmlspecialchars($keyword);
 
     $connect = mysql_connect("localhost","root","kyokyo!@");
     if(!$connect){
