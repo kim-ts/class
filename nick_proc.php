@@ -1,5 +1,16 @@
 <?php
+    session_start();
+    if($_POST['antitoken'] != $_SESSION['antitoken']){
+        echo "CSRF attack";
+        exit;
+    }
     $nickname = $_POST['nickname'];
+
+    // CSRF 공격 탐지
+    //if($_SERVER['HTTP_REFERER'] != "http://www.kyo.com/nick.php"){
+    //    echo "error page";
+    //    exit;
+    //}
 
     mysql_connect("localhost", "root", "kyokyo!@");
 

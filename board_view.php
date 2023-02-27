@@ -1,6 +1,9 @@
 <?php
     $no = $_GET['no'];
 
+    // SQL Injection Filter
+    $no = str_replace("'", "", $no);    //' 가있으면 없애라는 코드
+
     mysql_connect("localhost","root","kyokyo!@");
     mysql_select_db("webhacktest");
     $sql = "select * from board where no=$no";

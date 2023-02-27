@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    $token = md5(time());
+    $_SESSION['boardtoken'] = $token;
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,6 +14,7 @@
                 제목 : <input type="text" name="subject">
                 내용 : <textarea name="content" cols="100" rows="5"></textarea>
                 <input type="submit" value="등록"> <input type="reset" value="취소">
+                <input type="hidden" name="boardtoken" value="<?php echo $token;?>"> 
             </form>
 
             <form action="board_search.php" method="get">
@@ -18,6 +24,7 @@
             </form>
 
             <?php
+
                 $connect = mysql_connect("localhost","root","kyokyo!@");
                 if(!$connect){
                     echo "dbms connect fail";

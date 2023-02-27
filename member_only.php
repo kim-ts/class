@@ -1,5 +1,7 @@
 <?php
     session_start();
+    $token = md5(time());
+    $_SESSION['membertoken'] = $token;
 
     mysql_connect("localhost", "root", "kyokyo!@");
 
@@ -27,6 +29,7 @@
                 휴대폰: <input type="text" name="mobile" value="<?php echo $result['mobile']."\n"; ?>">
                 이메일: <input type="text" name="email" value="<?php echo $result['email']."\n"; ?>">
                 주소: <input type="text" name="address" value="<?php echo $result['address']."\n"; ?>">
+                <input type="hidden" name="membertoken" value="<?php echo $token;?>"> 
                 <input type="submit" value="수정"><input type="reset" value="취소">
             </pre>
         </form>

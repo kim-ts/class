@@ -8,6 +8,16 @@
     $email = $_POST['email'];
     $address = $_POST['address'];
 
+    if($_POST['membertoken'] != $_SESSION['membertoken']){
+        echo "CSRF attack";
+        exit;
+    }
+
+    if($_SERVER['HTTP_REFERER'] != "http://www.kyo.com/member_only.php"){
+        echo "u not member";
+        exit;
+    }
+
     mysql_connect("localhost", "root", "kyokyo!@");
 
     mysql_select_db("webhacktest");

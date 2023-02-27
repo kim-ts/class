@@ -2,6 +2,16 @@
     $subject = $_POST['subject'];
     $content = $_POST['content'];
 
+    if($_POST['boardtoken'] != $_SESSION['boardtoken']){
+        echo "CSRF attack";
+        exit;
+    }
+
+    if($_SERVER['HTTP_REFERER'] != "http://www.kyo.com/board.php"){
+        echo "address not board! u r haker!!";
+        exit;
+    }
+
     // xss filter
     //$subject = str_replace("<script>","",$subject);   // <script> 라는 문자가 있다면 , 빈 공간으로 치환하라, $subject 에서
     //$content = str_replace("<script>","",$content);
