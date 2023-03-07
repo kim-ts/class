@@ -8,7 +8,9 @@
         exit;
     }
     mysql_select_db("webhacktest");
-    $return =mysql_query("select * from board where subject like '%$keyword%'");   // keyword 가들어간 어떤것이든 출력하게만든것 like에 %는 %위치에 아무거나 라는의미니까
+    //$return =mysql_query("select * from board where subject like '%$keyword%'");   // keyword 가들어간 어떤것이든 출력하게만든것 like에 %는 %위치에 아무거나 라는의미니까
+    $sql = "call search_board('%$keyword%')";
+    $return = mysql_query($sql);
 ?>
 
 <!DOCTYPE html>

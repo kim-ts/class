@@ -8,7 +8,7 @@
     }
 
     if($_SERVER['HTTP_REFERER'] != "http://www.kyo.com/board.php"){
-        echo "address not board! u r haker!!";
+        echo "address not board! u r hakkk er!!";
         exit;
     }
 
